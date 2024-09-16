@@ -33,6 +33,8 @@ def sent_analyzer():
     return_text += "'sadness' {}. ".format(sadness_score)
     return_text += "The dominant emotion is <b>{}</b>.".format(dominant_emotion)
 
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!."
     return return_text
     
 @app.route("/")
