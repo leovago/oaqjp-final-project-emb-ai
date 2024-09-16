@@ -26,17 +26,17 @@ def sent_analyzer():
     dominant_emotion = response['dominant_emotion']
 
     return_text = "For the given statement, the system response is "
-    return_text += "'anger': {}, ".format(anger_score)
-    return_text += "'disgust' {}, ".format(disgust_score)
-    return_text += "'fear' {}, ".format(fear_score)
-    return_text += "'joy' {}, ".format(joy_score)
-    return_text += "'sadness' {}. ".format(sadness_score)
-    return_text += "The dominant emotion is <b>{}</b>.".format(dominant_emotion)
+    return_text += f"'anger': {anger_score}, "
+    return_text += f"'disgust' {disgust_score}, "
+    return_text += f"'fear' {fear_score}, "
+    return_text += f"'joy' {joy_score}, "
+    return_text += f"'sadness' {sadness_score}. "
+    return_text += f"The dominant emotion is <b>{dominant_emotion}</b>."
 
     if dominant_emotion is None:
         return "Invalid text! Please try again!."
     return return_text
-    
+
 @app.route("/")
 def render_index_page():
     ''' This function initiates the rendering of the main application
@@ -45,6 +45,5 @@ def render_index_page():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    ''' This functions executes the flask app and deploys it on localhost:5000
-    '''
+    # This functions executes the flask app and deploys it on localhost:5000
     app.run(host="0.0.0.0", port=5000)
